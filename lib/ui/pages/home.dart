@@ -131,7 +131,10 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          PlanFeaturesWidget(),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: PlanFeaturesWidget(),
+          ),
         ],
       ),
     );

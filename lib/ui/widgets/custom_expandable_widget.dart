@@ -15,11 +15,10 @@ class _PlanFeaturesWidgetState extends State<PlanFeaturesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    int visibleCount =
-        3; // Cantidad de características visibles antes de expandir
+    int visibleCount = 3;
 
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -29,25 +28,44 @@ class _PlanFeaturesWidgetState extends State<PlanFeaturesWidget> {
       ),
       child: Column(
         children: [
+          SizedBox(height: 40),
           //Nombres de los planes
           Row(
             children: [
-              Expanded(child: SizedBox()),
-              Expanded(child: _buildPlanTitle("Basic", Colors.blue, 44)),
-              Expanded(child: _buildPlanTitle("Plus", Colors.purple, 44)),
-              Expanded(child: _buildPlanTitle("Business", Colors.orange, 64)),
+              Expanded(flex: 2, child: SizedBox()),
+              Expanded(
+                child: _buildPlanTitle(
+                  "Basic",
+                  AppConfig.bgTextColor,
+                  AppConfig.primaryTextColor,
+                  44,
+                ),
+              ),
+              Expanded(
+                child: _buildPlanTitle(
+                  "PLUS",
+                  AppConfig.plusColor,
+                  AppConfig.bgTextColor,
+                  44,
+                ),
+              ),
+              Expanded(
+                child: _buildPlanTitle(
+                  "Business",
+                  AppConfig.businessColor,
+                  AppConfig.bgTextColor,
+                  64,
+                ),
+              ),
             ],
           ),
 
           SizedBox(height: 5),
 
-          // Fila con los precios
           Row(
             children: [
-              Expanded(
-                flex: 2,
-                child: Text("Desde", style: _headerStyle()),
-              ), // Mantiene espacio vacío arriba
+              Expanded(flex: 4, child: Text("Desde", style: _headerStyle())),
+              SizedBox(width: 20),
               Expanded(
                 flex: 2,
                 child: Text(
@@ -72,12 +90,13 @@ class _PlanFeaturesWidgetState extends State<PlanFeaturesWidget> {
                   textAlign: TextAlign.center,
                 ),
               ),
+              Image.asset('assets/icons/info icon.png'),
+              SizedBox(width: 8),
             ],
           ),
 
           Divider(),
 
-          // Lista de características alineadas correctamente
           ...controller.features
               .take(showAll ? controller.features.length : visibleCount)
               .map(
@@ -86,7 +105,7 @@ class _PlanFeaturesWidgetState extends State<PlanFeaturesWidget> {
                     Row(
                       children: [
                         Expanded(
-                          flex: 3,
+                          flex: 5,
                           child: Text(feature["name"], style: _textStyle()),
                         ),
                         Expanded(flex: 2, child: _buildIcon(feature["basic"])),
@@ -97,7 +116,7 @@ class _PlanFeaturesWidgetState extends State<PlanFeaturesWidget> {
                         ),
                         Expanded(
                           flex: 1,
-                          child: Icon(Icons.info_outline, color: Colors.grey),
+                          child: Image.asset('assets/icons/info icon.png'),
                         ), // Icono info
                       ],
                     ),
@@ -106,28 +125,30 @@ class _PlanFeaturesWidgetState extends State<PlanFeaturesWidget> {
                 ),
               ),
 
-          // Botón "Mostrar más / Mostrar menos" centrado con líneas arriba y abajo
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Divider(),
-              Center(
-                child: TextButton(
-                  onPressed: () {
+              Expanded(child: Divider(color: AppConfig.planTextColor)),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: InkWell(
+                  onTap: () {
                     setState(() {
                       showAll = !showAll;
                     });
                   },
                   child: Text(
-                    showAll ? "Mostrar menos" : "Mostrar más",
+                    showAll ? 'Mostrar menos' : 'Mostrar más',
                     style: TextStyle(
+                      fontFamily: 'CircularStd',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
                       color: AppConfig.planTextColor,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
-              Divider(),
+              Expanded(child: Divider(color: AppConfig.planTextColor)),
             ],
           ),
         ],
@@ -136,24 +157,29 @@ class _PlanFeaturesWidgetState extends State<PlanFeaturesWidget> {
   }
 
   // Widget para el título de cada plan (Basic, Plus, Business)
-  Widget _buildPlanTitle(String title, Color color, double width) {
+  Widget _buildPlanTitle(
+    String title,
+    Color bgColor,
+    Color textColor,
+    double width,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Container(
-        padding: EdgeInsets.only(top: 5),
         width: width,
-        height: 30,
+        height: 20,
         decoration: BoxDecoration(
+          color: bgColor,
           borderRadius: BorderRadius.circular(50),
-          border: Border.all(color: color),
+          border: Border.all(color: textColor),
         ),
         child: Text(
           title,
           style: TextStyle(
-            color: color,
-            fontWeight: FontWeight.bold,
+            color: textColor,
+            fontWeight: FontWeight.w500,
             fontFamily: 'CircularStd',
-            fontSize: 12,
+            fontSize: 13,
           ),
           textAlign: TextAlign.center,
         ),
@@ -161,7 +187,6 @@ class _PlanFeaturesWidgetState extends State<PlanFeaturesWidget> {
     );
   }
 
-  // Icono de check o X alineado
   Widget _buildIcon(bool value) {
     return Align(
       alignment: Alignment.center,

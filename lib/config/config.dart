@@ -8,6 +8,7 @@ class AppConfig {
   static const Color upgradeTextColor = Color(0xff35B58D);
   static const Color findPlanTextColor = Color(0xff858585);
   static const Color plusColor = Color(0xff0080FF);
+  static const Color businessColor = Color(0xff404040);
 
   //Textos globales
   static const String selectPlan = "Selecciona un plan";
