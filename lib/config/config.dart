@@ -22,6 +22,6 @@ class AppConfig {
       "Impulsa tu canal y gestiona tus ventas con más herramientas, más control y más visibilidad";
 
   //Precios de plan
-  static const String priceBasic = "0€";
+  static const String priceBasic = "0€/mes";
   static const String pricePlus = "9,99€/mes";
 }

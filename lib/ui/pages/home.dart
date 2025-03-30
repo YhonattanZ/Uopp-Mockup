@@ -60,6 +60,41 @@ class HomePage extends StatelessWidget {
                 right: BorderSide(color: AppConfig.findPlanTextColor),
               ),
             ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 5.0),
+                  child: Container(
+                    width: 82,
+                    height: 34,
+
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(50)),
+                      border: Border.all(color: AppConfig.primaryTextColor),
+                    ),
+                    child: Text(
+                      'Basic',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: AppConfig.primaryTextColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  AppConfig.priceBasic,
+                  style: TextStyle(
+                    fontFamily: 'CircularStd',
+                    fontSize: 24,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
