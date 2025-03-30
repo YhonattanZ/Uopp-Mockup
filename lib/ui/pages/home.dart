@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:prueba_uopp/config/config.dart';
 import 'package:prueba_uopp/ui/widgets/custom_appbar.dart';
 import 'package:prueba_uopp/ui/widgets/custom_button.dart';
+import 'package:prueba_uopp/ui/widgets/custom_expandable_widget.dart';
 
 import 'package:prueba_uopp/ui/widgets/local_video_player.dart';
 
@@ -130,6 +131,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
+          PlanFeaturesWidget(),
         ],
       ),
     );
