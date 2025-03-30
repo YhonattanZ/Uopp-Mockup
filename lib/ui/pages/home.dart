@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prueba_uopp/config/config.dart';
+import 'package:prueba_uopp/ui/widgets/custom_appbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,37 +9,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.arrow_back_ios, color: AppConfig.bgTextColor),
-            ),
-            Text(
-              AppConfig.selectPlan,
-              textAlign: TextAlign.left,
-
-              style: TextStyle(
-                fontFamily: 'CircularStd',
-                color: AppConfig.bgTextColor,
-                fontSize: 24,
-                // fontWeight: FontWeight.w700,
-              ),
-            ),
-          ],
-        ),
-        flexibleSpace: Container(
-          height: 95,
-          padding: EdgeInsets.fromLTRB(16, 55, 16, 10),
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: <Color>[Color(0xffB5AEFF), Color(0xff9688FF)],
-            ),
-          ),
-        ),
+      appBar: CustomAppBar(
+        title: AppConfig.selectPlan,
+        onBack: () => Get.back(),
       ),
       body: Center(
         child: ElevatedButton(
