@@ -11,6 +11,7 @@ class AppConfig {
 
   //Textos globales
   static const String selectPlan = "Selecciona un plan";
+  static const String seePlans = "Ver planes";
   static const String moreInfo =
       "¿Necesitas más anuncios y funcionalidades para vender más?";
   static const String actualPlan = "Plan actual";

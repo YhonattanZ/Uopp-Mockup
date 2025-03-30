@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -32,7 +34,7 @@ class _LocalVideoPlayerState extends State<LocalVideoPlayer> {
         _isInitialized = true;
       });
     } catch (e) {
-      print("Error al cargar el video: $e");
+      log("Error al cargar el video: $e");
     }
   }
 
