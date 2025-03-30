@@ -1,0 +1,18 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Home Page')),
+      body: Center(
+        child: ElevatedButton(
+          onPressed:
+              () => Get.snackbar('Hola', 'Bienvenido a Flutter con GetX'),
+          child: Text('Mostrar Snackbar'),
+        ),
+      ),
+    );
+  }
+}
