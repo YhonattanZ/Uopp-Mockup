@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prueba_uopp/config/config.dart';
 import 'package:prueba_uopp/ui/widgets/custom_appbar.dart';
+import 'package:prueba_uopp/ui/widgets/local_video_player.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,12 +14,8 @@ class HomePage extends StatelessWidget {
         title: AppConfig.selectPlan,
         onBack: () => Get.back(),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed:
-              () => Get.snackbar('Hola', 'Bienvenido a Flutter con GetX'),
-          child: Text('Mostrar Snackbar'),
-        ),
+      body: Column(
+        children: [LocalVideoPlayer(videoPath: 'assets/videos/video.mp4')],
       ),
     );
   }
