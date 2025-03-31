@@ -8,7 +8,7 @@ class DiagonalContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 50,
+      height: 55,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10),
@@ -20,7 +20,47 @@ class DiagonalContainer extends StatelessWidget {
           bottomLeft: Radius.circular(10),
           bottomRight: Radius.circular(10),
         ),
-        child: CustomPaint(painter: DiagonalPainter()),
+        child: CustomPaint(
+          painter: DiagonalPainter(),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+            child: Row(
+              children: [
+                Image.asset('assets/icons/promo.png'),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        'Promoción',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontFamily: 'CircularStd',
+                          fontSize: 12,
+                          color: AppConfig.bgTextColor,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        'BIENVENIDA',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontFamily: 'CircularStd',
+                          fontSize: 28,
+                          color: AppConfig.bgTextColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(children: [Text('Primer mes')]),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

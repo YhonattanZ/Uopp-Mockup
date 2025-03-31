@@ -9,13 +9,22 @@ import 'package:prueba_uopp/ui/widgets/custom_tag.dart';
 import 'package:prueba_uopp/ui/widgets/diagonal_container.dart';
 import 'package:prueba_uopp/ui/widgets/local_video_player.dart';
 
-class SeePlans extends StatelessWidget {
+class SeePlans extends StatefulWidget {
   SeePlans({super.key});
 
+  @override
+  State<SeePlans> createState() => _SeePlansState();
+}
+
+class _SeePlansState extends State<SeePlans> {
   final PlanController controller = Get.put(PlanController());
+
+  bool showAll = false;
 
   @override
   Widget build(BuildContext context) {
+    int visibleCount = 5;
+
     return Scaffold(
       bottomNavigationBar: CustomElevatedButton(
         title: 'Seleccionar',
@@ -25,7 +34,7 @@ class SeePlans extends StatelessWidget {
         title: AppConfig.selectPlan,
         onBack: () => Get.back(),
       ),
-      body: Column(
+      body: ListView(
         children: [
           LocalVideoPlayer(videoPath: 'assets/videos/video.mp4'),
           // Expanded(child: PageView()),
@@ -173,6 +182,70 @@ class SeePlans extends StatelessWidget {
                     left: BorderSide(color: AppConfig.primaryTextColor),
                     right: BorderSide(color: AppConfig.primaryTextColor),
                   ),
+                ),
+                child: Column(
+                  children: [
+                    ...controller.plusPlan
+                        .take(
+                          showAll ? controller.plusPlan.length : visibleCount,
+                        )
+                        .map(
+                          (f) => Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 10, 10, 5),
+                            child: Row(
+                              children: [
+                                Image.asset('assets/icons/Yes.png'),
+                                SizedBox(width: 10),
+                                Text(
+                                  f["feature"],
+                                  style: TextStyle(
+                                    fontFamily: 'CircularStd',
+                                    fontSize: 14,
+                                    color: AppConfig.findPlanTextColor,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Divider(color: AppConfig.planTextColor),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  showAll = !showAll;
+                                });
+                              },
+                              child: Text(
+                                showAll ? 'Mostrar menos' : 'Mostrar más',
+                                style: TextStyle(
+                                  fontFamily: 'CircularStd',
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppConfig.planTextColor,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Divider(color: AppConfig.planTextColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

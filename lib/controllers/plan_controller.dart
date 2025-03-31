@@ -68,22 +68,22 @@ class PlanController extends GetxController {
     }, // Solo business
   ];
   final List<Map<String, dynamic>> plusPlan = [
-    {"name": "Anuncios de 90 segundos"},
-    {"name": "Anuncios no caducan"},
-    {"name": "Publicar anuncios avanzados"},
-    {"name": "Activar sistema de Pre-venta"},
-    {"name": "Activar Chat"},
-    {"name": "Crear y enviar descuentos"},
-    {"name": "Ver cestas y favoritos"},
-    {"name": "Sistema de roles y permisos"},
+    {"feature": "Anuncios de 90 segundos"},
+    {"feature": "Anuncios no caducan"},
+    {"feature": "Publicar anuncios avanzados"},
+    {"feature": "Activar sistema de Pre-venta"},
+    {"feature": "Activar Chat"},
+    {"feature": "Crear y enviar descuentos"},
+    {"feature": "Ver cestas y favoritos"},
+    {"feature": "Sistema de roles y permisos"},
   ];
 
   final List<Map<String, dynamic>> shopPlan = [
-    {"name": "Activar sistema de Pre-venta"},
-    {"name": "Entregas en tienda física"},
-    {"name": "Política de devolución propia"},
-    {"name": "Migrar catálogo y stock en tiempo real"},
-    {"name": "Sistema de roles y permisos"},
-    {"name": "Acceso a API"},
+    {"feature": "Activar sistema de Pre-venta"},
+    {"feature": "Entregas en tienda física"},
+    {"feature": "Política de devolución propia"},
+    {"feature": "Migrar catálogo y stock en tiempo real"},
+    {"feature": "Sistema de roles y permisos"},
+    {"feature": "Acceso a API"},
   ];
 }
