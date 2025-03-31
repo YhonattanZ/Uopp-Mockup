@@ -29,6 +29,7 @@ class AppConfig {
   //Precios de plan
   static const String priceBasic = "0€/mes";
   static const String pricePlus = "9,99€/mes";
+  static const String priceShop = "19,99€/mes";
 
   //Headers caracteristicas incluidas
   static const String plusFeatures = "TODO LO DEL PLAN BASIC, Y ADEMÁS:";

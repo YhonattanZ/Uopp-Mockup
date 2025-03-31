@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -14,28 +12,16 @@ class LocalVideoPlayer extends StatefulWidget {
 
 class _LocalVideoPlayerState extends State<LocalVideoPlayer> {
   late VideoPlayerController _controller;
-  bool _isInitialized = false;
 
   @override
   void initState() {
     super.initState();
-    _initializeVideo();
-  }
-
-  Future<void> _initializeVideo() async {
-    _controller = VideoPlayerController.asset(widget.videoPath);
-
-    try {
-      await _controller.initialize();
-      _controller.setLooping(false);
-      _controller.play();
-
-      setState(() {
-        _isInitialized = true;
+    _controller = VideoPlayerController.asset(widget.videoPath)
+      ..initialize().then((_) {
+        setState(() {});
       });
-    } catch (e) {
-      log("Error al cargar el video: $e");
-    }
+
+    _controller.setLooping(false);
   }
 
   @override
@@ -44,13 +30,34 @@ class _LocalVideoPlayerState extends State<LocalVideoPlayer> {
     super.dispose();
   }
 
+  void _togglePlayPause() {
+    setState(() {
+      if (_controller.value.isPlaying) {
+        _controller.pause();
+      } else {
+        _controller.play();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return _isInitialized
-        ? AspectRatio(
-          aspectRatio: _controller.value.aspectRatio,
-          child: VideoPlayer(_controller),
-        )
-        : Center(child: CircularProgressIndicator());
+    return GestureDetector(
+      onTap: _togglePlayPause,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          _controller.value.isInitialized
+              ? AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
+              )
+              : CircularProgressIndicator(),
+
+          if (!_controller.value.isPlaying)
+            Icon(Icons.play_circle_fill, size: 50, color: Colors.white),
+        ],
+      ),
+    );
   }
 }
