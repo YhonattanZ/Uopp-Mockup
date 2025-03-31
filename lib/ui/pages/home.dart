@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prueba_uopp/config/config.dart';
+import 'package:prueba_uopp/routes/app_routes.dart';
 import 'package:prueba_uopp/ui/widgets/custom_appbar.dart';
 import 'package:prueba_uopp/ui/widgets/custom_button.dart';
 import 'package:prueba_uopp/ui/widgets/custom_expandable_widget.dart';
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: CustomElevatedButton(
         title: AppConfig.seePlans,
-        onPressed: () {},
+        onPressed: () => Get.toNamed(AppRoutes.plansPage),
       ),
       appBar: CustomAppBar(
         title: AppConfig.selectPlan,
