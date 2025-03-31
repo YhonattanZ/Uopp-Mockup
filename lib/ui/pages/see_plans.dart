@@ -4,7 +4,6 @@ import 'package:prueba_uopp/config/config.dart';
 import 'package:prueba_uopp/routes/app_routes.dart';
 import 'package:prueba_uopp/ui/widgets/custom_appbar.dart';
 import 'package:prueba_uopp/ui/widgets/custom_button.dart';
-import 'package:prueba_uopp/ui/widgets/custom_tag.dart';
 
 class SeePlans extends StatelessWidget {
   const SeePlans({super.key});
@@ -23,7 +22,7 @@ class SeePlans extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [CustomTagWidget(text: 'PLUS')],
+        children: [],
       ),
     );
   }
