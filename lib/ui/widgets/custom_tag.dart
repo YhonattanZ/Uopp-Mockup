@@ -5,6 +5,7 @@ class CustomTagWidget extends StatelessWidget {
   final Color color;
   final Color textColor;
   final double width;
+  final TextAlign? align;
 
   const CustomTagWidget({
     super.key,
@@ -12,6 +13,7 @@ class CustomTagWidget extends StatelessWidget {
     this.color = Colors.blue,
     this.width = 130,
     required this.textColor,
+    this.align,
   });
 
   @override
@@ -27,6 +29,7 @@ class CustomTagWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
           child: Text(
             text,
+            textAlign: align,
             style: TextStyle(
               fontSize: 24,
               fontFamily: 'CircularStd',
