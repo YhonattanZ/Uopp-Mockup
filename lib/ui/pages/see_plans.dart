@@ -183,67 +183,90 @@ class _SeePlansState extends State<SeePlans> {
                     right: BorderSide(color: AppConfig.primaryTextColor),
                   ),
                 ),
-                child: Column(
+                child: Stack(
                   children: [
-                    ...controller.plusPlan
-                        .take(
-                          showAll ? controller.plusPlan.length : visibleCount,
-                        )
-                        .map(
-                          (f) => Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 10, 10, 5),
-                            child: Row(
-                              children: [
-                                Image.asset('assets/icons/Yes.png'),
-                                SizedBox(width: 10),
-                                Text(
-                                  f["feature"],
-                                  style: TextStyle(
-                                    fontFamily: 'CircularStd',
-                                    fontSize: 14,
-                                    color: AppConfig.findPlanTextColor,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 10,
+                    Positioned(
+                      right: -60,
+                      top: 10,
+                      child: Image.asset(
+                        'assets/icons/1.png',
+                        width: 217,
+                        height: 170,
+                        opacity: const AlwaysStoppedAnimation(0.2),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Divider(color: AppConfig.planTextColor),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: InkWell(
-                              onTap: () {
-                                setState(() {
-                                  showAll = !showAll;
-                                });
-                              },
-                              child: Text(
-                                showAll ? 'Mostrar menos' : 'Mostrar más',
-                                style: TextStyle(
-                                  fontFamily: 'CircularStd',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppConfig.planTextColor,
+                    ),
+                    Column(
+                      children: [
+                        ...controller.plusPlan
+                            .take(
+                              showAll
+                                  ? controller.plusPlan.length
+                                  : visibleCount,
+                            )
+                            .map(
+                              (f) => Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                  10,
+                                  10,
+                                  10,
+                                  5,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Image.asset('assets/icons/Yes.png'),
+                                    SizedBox(width: 10),
+                                    Text(
+                                      f["feature"],
+                                      style: TextStyle(
+                                        fontFamily: 'CircularStd',
+                                        fontSize: 14,
+                                        color: AppConfig.findPlanTextColor,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 10,
                           ),
-                          Expanded(
-                            child: Divider(color: AppConfig.planTextColor),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Divider(color: AppConfig.planTextColor),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 20,
+                                ),
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      showAll = !showAll;
+                                    });
+                                  },
+                                  child: Text(
+                                    showAll ? 'Mostrar menos' : 'Mostrar más',
+                                    style: TextStyle(
+                                      fontFamily: 'CircularStd',
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: AppConfig.planTextColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Divider(color: AppConfig.planTextColor),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

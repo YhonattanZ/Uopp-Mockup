@@ -8,7 +8,7 @@ class DiagonalContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 55,
+      height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10),
@@ -49,7 +49,7 @@ class DiagonalContainer extends StatelessWidget {
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontFamily: 'CircularStd',
-                          fontSize: 28,
+                          fontSize: 20,
                           color: AppConfig.bgTextColor,
                         ),
                       ),
