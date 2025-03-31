@@ -129,6 +129,21 @@ class SeePlans extends StatelessWidget {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Container(
+              height: 30,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color(0xff81ECCA),
+                border: Border(
+                  left: BorderSide(color: AppConfig.primaryTextColor),
+                  right: BorderSide(color: AppConfig.primaryTextColor),
+                ),
+              ),
+              child: Text(AppConfig.plusFeatures, style: TextStyle()),
+            ),
+          ),
         ],
       ),
     );

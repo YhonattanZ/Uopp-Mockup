@@ -4,7 +4,7 @@ class AppConfig {
   //Colores de texto
   static const Color bgTextColor = Colors.white;
   static const Color primaryTextColor = Color(0xff707477);
-  static const Color planTextColor = Color(0xffADA4FF);
+  static const Color planTextColor = Color.fromRGBO(173, 164, 255, 1);
   static const Color upgradeTextColor = Color(0xff35B58D);
   static const Color findPlanTextColor = Color(0xff858585);
   static const Color plusColor = Color(0xff0080FF);
@@ -26,4 +26,8 @@ class AppConfig {
   //Precios de plan
   static const String priceBasic = "0€/mes";
   static const String pricePlus = "9,99€/mes";
+
+  //Headers caracteristicas incluidas
+  static const String plusFeatures = "TODO LO DEL PLAN BASIC, Y ADEMÁS";
+  static const String shopFeatures = "TODO LO DEL PLAN PLUS, Y ADEMÁS";
 }

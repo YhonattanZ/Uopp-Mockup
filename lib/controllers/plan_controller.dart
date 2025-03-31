@@ -67,4 +67,23 @@ class PlanController extends GetxController {
       "business": true,
     }, // Solo business
   ];
+  final List<Map<String, dynamic>> plusPlan = [
+    {"name": "Anuncios de 90 segundos"},
+    {"name": "Anuncios no caducan"},
+    {"name": "Publicar anuncios avanzados"},
+    {"name": "Activar sistema de Pre-venta"},
+    {"name": "Activar Chat"},
+    {"name": "Crear y enviar descuentos"},
+    {"name": "Ver cestas y favoritos"},
+    {"name": "Sistema de roles y permisos"},
+  ];
+
+  final List<Map<String, dynamic>> shopPlan = [
+    {"name": "Activar sistema de Pre-venta"},
+    {"name": "Entregas en tienda física"},
+    {"name": "Política de devolución propia"},
+    {"name": "Migrar catálogo y stock en tiempo real"},
+    {"name": "Sistema de roles y permisos"},
+    {"name": "Acceso a API"},
+  ];
 }
