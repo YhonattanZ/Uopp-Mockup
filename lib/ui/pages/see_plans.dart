@@ -42,13 +42,60 @@ class SeePlans extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Wrap(
+                  CustomTagWidget(
+                    text: 'PLUS',
+                    align: TextAlign.center,
+                    textColor: AppConfig.bgTextColor,
+                    color: AppConfig.plusColor,
+                  ),
+                  Spacer(),
+                  Column(
                     children: [
-                      CustomTagWidget(
-                        text: 'PLUS',
-                        align: TextAlign.center,
-                        textColor: AppConfig.bgTextColor,
-                        color: AppConfig.plusColor,
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 5, 10, 0),
+                        child: Row(
+                          children: [
+                            Text(
+                              'desde ',
+                              style: TextStyle(
+                                color: AppConfig.primaryTextColor,
+                                fontFamily: 'CircularStd',
+                                fontWeight: FontWeight.w700,
+                                fontSize: 13,
+                              ),
+                            ),
+                            Text(
+                              AppConfig.pricePlus,
+                              style: TextStyle(
+                                color: AppConfig.upgradeTextColor,
+                                fontFamily: 'CircularStd',
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Container(
+                          width: 124,
+                          height: 12,
+                          decoration: BoxDecoration(
+                            color: Color(0xffFF9F2E),
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                          ),
+                          child: Text(
+                            'SIN PERMANENCIA',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: AppConfig.bgTextColor,
+                              fontFamily: 'CircularStd',
+                              fontSize: 9,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -56,10 +103,32 @@ class SeePlans extends StatelessWidget {
               ),
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 10),
-          //   child: DiagonalContainer(),
-          // ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Container(
+              width: double.infinity,
+              height: 60,
+              decoration: BoxDecoration(
+                border: Border(
+                  left: BorderSide(color: AppConfig.primaryTextColor),
+                  right: BorderSide(color: AppConfig.primaryTextColor),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                  textAlign: TextAlign.center,
+                  AppConfig.infoPlusPlan,
+                  style: TextStyle(
+                    color: AppConfig.primaryTextColor,
+                    fontFamily: 'CircularStd',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
