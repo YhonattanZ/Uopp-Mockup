@@ -27,36 +27,67 @@ class DiagonalContainer extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset('assets/icons/promo.png'),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text(
-                        'Promoción',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontFamily: 'CircularStd',
-                          fontSize: 12,
-                          color: AppConfig.bgTextColor,
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "Promoción\n",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'CircularStd',
+                            color: AppConfig.bgTextColor,
+                            fontWeight: FontWeight.w400,
+                            height: 0.8,
+                          ),
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text(
-                        'BIENVENIDA',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontFamily: 'CircularStd',
-                          fontSize: 20,
-                          color: AppConfig.bgTextColor,
+                        TextSpan(
+                          text: "BIENVENIDA",
+                          style: TextStyle(
+                            fontFamily: 'CircularStd',
+                            color: AppConfig.bgTextColor,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w700,
+                            height: 1.0,
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
+                    textAlign: TextAlign.left,
+                  ),
                 ),
-                Column(children: [Text('Primer mes')]),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "Primer mes\n",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'CircularStd',
+                            color: AppConfig.bgTextColor,
+                            fontWeight: FontWeight.w400,
+                            height: 0.8,
+                          ),
+                        ),
+                        TextSpan(
+                          text: "GRATIS",
+                          style: TextStyle(
+                            fontFamily: 'CircularStd',
+                            color: AppConfig.bgTextColor,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w700,
+                            height: 1.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ],
             ),
           ),
