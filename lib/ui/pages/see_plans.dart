@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prueba_uopp/config/config.dart';
+import 'package:prueba_uopp/controllers/plan_controller.dart';
 import 'package:prueba_uopp/routes/app_routes.dart';
 import 'package:prueba_uopp/ui/widgets/custom_appbar.dart';
 import 'package:prueba_uopp/ui/widgets/custom_button.dart';
@@ -9,7 +10,9 @@ import 'package:prueba_uopp/ui/widgets/diagonal_container.dart';
 import 'package:prueba_uopp/ui/widgets/local_video_player.dart';
 
 class SeePlans extends StatelessWidget {
-  const SeePlans({super.key});
+  SeePlans({super.key});
+
+  final PlanController controller = Get.put(PlanController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +28,7 @@ class SeePlans extends StatelessWidget {
       body: Column(
         children: [
           LocalVideoPlayer(videoPath: 'assets/videos/video.mp4'),
+          // Expanded(child: PageView()),
           Padding(
             padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
             child: Container(
@@ -141,8 +145,41 @@ class SeePlans extends StatelessWidget {
                   right: BorderSide(color: AppConfig.primaryTextColor),
                 ),
               ),
-              child: Text(AppConfig.plusFeatures, style: TextStyle()),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 5,
+                  horizontal: 10,
+                ),
+                child: Text(
+                  AppConfig.plusFeatures,
+                  style: TextStyle(
+                    fontFamily: 'CircularStd',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: AppConfig.upgradeTextColor,
+                  ),
+                ),
+              ),
             ),
+          ),
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Container(
+                width: double.infinity,
+
+                decoration: BoxDecoration(
+                  border: Border(
+                    left: BorderSide(color: AppConfig.primaryTextColor),
+                    right: BorderSide(color: AppConfig.primaryTextColor),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: DiagonalContainer(),
           ),
         ],
       ),

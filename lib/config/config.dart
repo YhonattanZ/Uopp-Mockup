@@ -10,6 +10,7 @@ class AppConfig {
   static const Color plusColor = Color(0xff0080FF);
   static const Color businessColor = Color(0xff404040);
   static const Color actualPlanColor = Color(0xffE8E5FF);
+  static const Color welcomePromoColor = Color(0xffFF9F2E);
 
   //Textos globales
   static const String selectPlan = "Selecciona un plan";
@@ -21,13 +22,15 @@ class AppConfig {
   static const String findYourPlan = "ENCUENTRA TU PLAN";
   static const String plusPlan = "PLUS";
   static const String infoPlusPlan =
-      "Impulsa tu canal y gestiona tus ventas con más herramientas, más control y más visibilidad";
+      "Impulsa tu canal y gestiona tus ventas con más herramientas, más control y más visibilidad.";
+  static const String infoShopPlan =
+      "Vende productos físicos y gestiona tu inventario con herramientas profesionales.";
 
   //Precios de plan
   static const String priceBasic = "0€/mes";
   static const String pricePlus = "9,99€/mes";
 
   //Headers caracteristicas incluidas
-  static const String plusFeatures = "TODO LO DEL PLAN BASIC, Y ADEMÁS";
-  static const String shopFeatures = "TODO LO DEL PLAN PLUS, Y ADEMÁS";
+  static const String plusFeatures = "TODO LO DEL PLAN BASIC, Y ADEMÁS:";
+  static const String shopFeatures = "TODO LO DEL PLAN PLUS, Y ADEMÁS:";
 }

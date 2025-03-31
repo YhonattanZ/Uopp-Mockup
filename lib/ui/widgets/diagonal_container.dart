@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:prueba_uopp/config/config.dart';
 
 class DiagonalContainer extends StatelessWidget {
+  const DiagonalContainer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -8,16 +11,11 @@ class DiagonalContainer extends StatelessWidget {
       height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(
-            10,
-          ), // 🔹 Esquina inferior izquierda redondeada
-          bottomRight: Radius.circular(
-            10,
-          ), // 🔹 Esquina inferior derecha redondeada
+          bottomLeft: Radius.circular(10),
+          bottomRight: Radius.circular(10),
         ),
       ),
       child: ClipRRect(
-        // 🔹 Recortar el contenido para respetar los bordes redondeados
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10),
           bottomRight: Radius.circular(10),
@@ -33,27 +31,26 @@ class DiagonalPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
 
-    // 🎨 Primera parte (75%) - Color superior izquierdo
     Path path1 =
         Path()
           ..moveTo(0, 0)
-          ..lineTo(size.width * 0.75, 0) // 🔹 La diagonal comienza al 75%
-          ..lineTo(0, size.height)
+          ..lineTo(size.width * 0.70, 0) // 🔹 La diagonal comienza al 70%
+          ..lineTo(size.width * 0.60, size.height)
+          ..lineTo(0, size.height) // Ajuste para mover la base
           ..close();
 
-    paint.color = Colors.blue; // Color superior izquierdo
+    paint.color = AppConfig.welcomePromoColor;
     canvas.drawPath(path1, paint);
 
-    // 🎨 Segunda parte (25%) - Color inferior derecho
     Path path2 =
         Path()
-          ..moveTo(size.width * 0.75, 0)
+          ..moveTo(size.width * 0.70, 0)
           ..lineTo(size.width, 0)
           ..lineTo(size.width, size.height)
-          ..lineTo(0, size.height)
+          ..lineTo(size.width * 0.60, size.height) // Ajuste para mover la base
           ..close();
 
-    paint.color = Colors.red; // Color inferior derecho
+    paint.color = AppConfig.upgradeTextColor;
     canvas.drawPath(path2, paint);
   }
 
