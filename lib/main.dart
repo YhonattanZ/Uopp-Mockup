@@ -15,15 +15,15 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData(
         switchTheme: SwitchThemeData(
-          trackOutlineColor: MaterialStateProperty.resolveWith<Color?>((
-            Set<MaterialState> states,
+          trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((
+            Set<WidgetState> states,
           ) {
-            if (states.contains(MaterialState.selected)) {
+            if (states.contains(WidgetState.selected)) {
               return AppConfig.planTextColor;
             }
             return Color(0xffD5D8DB); // Borde cuando está desactivado
           }),
-          trackOutlineWidth: MaterialStateProperty.all(2), // Grosor del borde
+          trackOutlineWidth: WidgetStateProperty.all(2), // Grosor del borde
         ),
       ),
       debugShowCheckedModeBanner: false,

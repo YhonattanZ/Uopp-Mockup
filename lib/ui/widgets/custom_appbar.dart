@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_uopp/config/config.dart';
 
+// ignore: must_be_immutable
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback onBack;

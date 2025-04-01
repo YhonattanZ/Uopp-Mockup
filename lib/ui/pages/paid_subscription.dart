@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:prueba_uopp/config/config.dart';
+import 'package:prueba_uopp/routes/app_routes.dart';
 import 'package:prueba_uopp/ui/widgets/custom_button.dart';
 
 class PaidSubscription extends StatelessWidget {
@@ -10,7 +12,9 @@ class PaidSubscription extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: CustomElevatedButton(
         title: 'Aceptar',
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(AppRoutes.HOME);
+        },
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
