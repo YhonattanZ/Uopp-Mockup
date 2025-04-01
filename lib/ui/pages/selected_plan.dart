@@ -36,7 +36,7 @@ class _SelectedPlanState extends State<SelectedPlan> {
               ? CustomElevatedButton(title: 'Seleccionar', onPressed: () {})
               : CustomElevatedButton(
                 title: 'Continuar',
-                onPressed: () => Get.toNamed(''),
+                onPressed: () => Get.toNamed(AppRoutes.payment),
               ),
 
       body: ListView.builder(
