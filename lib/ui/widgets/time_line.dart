@@ -20,25 +20,54 @@ class TimelineItem extends StatelessWidget {
       children: [
         Column(
           children: [
-            Image.asset('assets/icons/Yes.png'),
+            isLast
+                ? Image.asset('assets/icons/Yes.png')
+                : Image.asset('assets/icons/Yes.png'),
             if (!isLast)
-              Container(width: 3, height: 50, color: Color(0xff56F3C2)),
+              Container(width: 3, height: 50, color: Color(0xff56F3C2))
+            else
+              Container(width: 3, height: 50, color: Color(0xffE9E7FF)),
           ],
         ),
         SizedBox(width: 10),
-
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 60,
+                height: 55,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
-                  border: Border.all(width: 2, color: Color(0xff2A6A57)),
+                  border: Border.all(
+                    width: 2,
+                    color:
+                        isLast ? Color(0xffE9E7FF) : AppConfig.upgradeTextColor,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Text(
+                            title,
+                            style: TextStyle(
+                              fontFamily: 'CircularStd',
+                              color: AppConfig.findPlanTextColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(),
+                  ],
                 ),
               ),
+              SizedBox(height: 10),
             ],
           ),
         ),

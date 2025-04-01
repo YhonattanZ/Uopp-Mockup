@@ -54,10 +54,11 @@ class ResumePurchaseHeader extends StatelessWidget {
           child: Expanded(child: Divider()),
         ),
         Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(15.0),
           child: SizedBox(
-            height: 280,
+            height: 260,
             child: ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
               itemCount: controller.dates.length,
               itemBuilder:
                   (context, i) => TimelineItem(
