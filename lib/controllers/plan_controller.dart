@@ -106,6 +106,13 @@ class PlanController extends GetxController {
     },
   ];
 
+  final List<Map<String, String>> dates = [
+    {"title": "Hoy", "date": "Primer mes"},
+    {"title": "01 May 2025", "date": "Segundo mes"},
+    {"title": "01 Jun 2025", "date": "Tercer mes"},
+    {"title": "01 Jul 2025", "date": "Cada 30 días"},
+  ];
+
   var selectedPlanIndex = (-1).obs;
 
   void selectPlan(int index) {

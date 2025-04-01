@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:prueba_uopp/config/config.dart';
+import 'package:prueba_uopp/controllers/plan_controller.dart';
+import 'package:prueba_uopp/ui/widgets/time_line.dart';
 
 class ResumePurchaseHeader extends StatelessWidget {
   const ResumePurchaseHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final PlanController controller = Get.put(PlanController());
+
     return Wrap(
       children: [
         Row(
@@ -47,6 +52,21 @@ class ResumePurchaseHeader extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Expanded(child: Divider()),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: SizedBox(
+            height: 280,
+            child: ListView.builder(
+              itemCount: controller.dates.length,
+              itemBuilder:
+                  (context, i) => TimelineItem(
+                    title: controller.dates[i]['title'].toString(),
+                    date: controller.dates[i]['date'].toString(),
+                    isLast: i == controller.dates.length - 1,
+                  ),
+            ),
+          ),
         ),
       ],
     );
