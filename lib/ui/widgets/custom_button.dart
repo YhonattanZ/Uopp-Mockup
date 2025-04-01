@@ -16,6 +16,7 @@ class CustomElevatedButton extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: SizedBox(
         height: 45,
+        width: double.infinity,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: AppConfig.planTextColor,

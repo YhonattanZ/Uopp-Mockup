@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prueba_uopp/config/config.dart';
+import 'package:prueba_uopp/routes/app_routes.dart';
 import 'package:prueba_uopp/ui/widgets/custom_appbar.dart';
 import 'package:prueba_uopp/ui/widgets/custom_button.dart';
 import 'package:prueba_uopp/ui/widgets/custom_tag.dart';
@@ -19,10 +20,6 @@ class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomElevatedButton(
-        title: 'Suscribirme',
-        onPressed: () {},
-      ),
       appBar: CustomAppBar(title: 'Pago', onBack: () => Get.back()),
       body: SingleChildScrollView(
         child: Column(
@@ -149,9 +146,9 @@ class _PaymentPageState extends State<PaymentPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.fromLTRB(20, 10, 10, 0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Image.asset('assets/icons/info purple.png'),
                   SizedBox(width: 10),
@@ -162,6 +159,33 @@ class _PaymentPageState extends State<PaymentPage> {
                       fontSize: 11,
                       fontWeight: FontWeight.w500,
                       color: AppConfig.findPlanTextColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            CustomElevatedButton(
+              title: 'Suscribirme',
+              onPressed: () => Get.toNamed(AppRoutes.subscriptionPaid),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('assets/icons/logo.png'),
+                  SizedBox(width: 5),
+                  SizedBox(
+                    width: 340,
+                    child: Text(
+                      textAlign: TextAlign.start,
+                      AppConfig.terms,
+                      style: TextStyle(
+                        fontFamily: 'CircularStd',
+                        fontSize: 11,
+                        fontWeight: FontWeight.w500,
+                        color: AppConfig.findPlanTextColor,
+                      ),
                     ),
                   ),
                 ],

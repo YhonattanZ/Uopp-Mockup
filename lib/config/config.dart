@@ -27,6 +27,8 @@ class AppConfig {
       "Vende productos físicos y gestiona tu inventario con herramientas profesionales.";
   static const String subscription =
       "Ahora ya puedes disfrutar de todas las ventajas de ser PLUS";
+  static const String terms =
+      'Al suscribirte estás aceptando las condiciones generales de contratación de Uopp Spain Ltd y Stripe Ltd.';
 
   //Precios de plan
   static const String priceBasic = "0€/mes";
