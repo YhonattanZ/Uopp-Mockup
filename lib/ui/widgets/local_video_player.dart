@@ -10,7 +10,8 @@ class LocalVideoPlayer extends StatefulWidget {
   _LocalVideoPlayerState createState() => _LocalVideoPlayerState();
 }
 
-class _LocalVideoPlayerState extends State<LocalVideoPlayer> {
+class _LocalVideoPlayerState extends State<LocalVideoPlayer>
+    with AutomaticKeepAliveClientMixin {
   late VideoPlayerController _controller;
 
   @override
@@ -29,6 +30,9 @@ class _LocalVideoPlayerState extends State<LocalVideoPlayer> {
     _controller.dispose();
     super.dispose();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
   void _togglePlayPause() {
     setState(() {
