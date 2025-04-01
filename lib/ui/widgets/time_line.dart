@@ -21,7 +21,7 @@ class TimelineItem extends StatelessWidget {
         Column(
           children: [
             isLast
-                ? Image.asset('assets/icons/Yes.png')
+                ? Image.asset('assets/icons/yes purple.png')
                 : Image.asset('assets/icons/Yes.png'),
             if (!isLast)
               Container(width: 3, height: 50, color: Color(0xff56F3C2))
@@ -31,8 +31,7 @@ class TimelineItem extends StatelessWidget {
         ),
         SizedBox(width: 10),
         Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Wrap(
             children: [
               Container(
                 height: 55,
@@ -47,11 +46,11 @@ class TimelineItem extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Text(
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 5, 10, 0),
+                      child: Row(
+                        children: [
+                          Text(
                             title,
                             style: TextStyle(
                               fontFamily: 'CircularStd',
@@ -60,10 +59,68 @@ class TimelineItem extends StatelessWidget {
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                        ),
-                      ],
+                          Spacer(),
+                          Text(
+                            isLast ? '' : 'Promo STARTER -50%',
+                            style: TextStyle(
+                              fontFamily: 'CircularStd',
+                              color: AppConfig.findPlanTextColor,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    Row(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        children: [
+                          Text(
+                            date,
+                            style: TextStyle(
+                              fontFamily: 'CircularStd',
+                              color: AppConfig.findPlanTextColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Spacer(),
+                          Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: isLast ? '' : "19,99€ ",
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: AppConfig.primaryTextColor,
+                                    fontFamily: 'CircularStd',
+                                    decoration: TextDecoration.lineThrough,
+                                    fontWeight: FontWeight.w500,
+                                    height: 0.8,
+                                  ),
+                                ),
+
+                                TextSpan(
+                                  text: isLast ? "19,99€" : "9,99€",
+                                  style: TextStyle(
+                                    fontFamily: 'CircularStd',
+                                    color:
+                                        isLast
+                                            ? AppConfig.primaryTextColor
+                                            : AppConfig.upgradeTextColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                    height: 1.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
