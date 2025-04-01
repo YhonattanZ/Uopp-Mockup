@@ -5,6 +5,8 @@ import 'package:prueba_uopp/controllers/plan_controller.dart';
 import 'package:prueba_uopp/ui/widgets/custom_tag.dart';
 
 class PlanFeaturesWidget extends StatefulWidget {
+  const PlanFeaturesWidget({super.key});
+
   @override
   _PlanFeaturesWidgetState createState() => _PlanFeaturesWidgetState();
 }

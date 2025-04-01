@@ -53,7 +53,24 @@ class _LocalVideoPlayerState extends State<LocalVideoPlayer> {
                 child: VideoPlayer(_controller),
               )
               : CircularProgressIndicator(),
-
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 50,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.white.withOpacity(0.8),
+                    Colors.white.withOpacity(0.0),
+                  ],
+                ),
+              ),
+            ),
+          ),
           if (!_controller.value.isPlaying)
             Icon(Icons.play_circle_fill, size: 50, color: Colors.white),
         ],
