@@ -2,17 +2,22 @@ import 'package:flutter/material.dart';
 
 class CustomTagWidget extends StatelessWidget {
   final String text;
+
   String? subtitle;
   final Color color;
   final Color textColor;
   final double width;
+  final double textSize;
   final TextAlign? align;
+  Widget? icon;
 
   CustomTagWidget({
     super.key,
     required this.text,
+    this.icon,
     this.color = Colors.blue,
     this.width = 130,
+    this.textSize = 24,
     required this.textColor,
     this.align,
     this.subtitle,
@@ -35,11 +40,15 @@ class CustomTagWidget extends StatelessWidget {
                     ? MainAxisAlignment.start
                     : MainAxisAlignment.center,
             children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 5),
+                child: icon ?? SizedBox(),
+              ),
               Text(
                 text,
                 textAlign: align,
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: textSize,
                   fontFamily: 'CircularStd',
                   color: textColor,
                   fontWeight: FontWeight.w500,
