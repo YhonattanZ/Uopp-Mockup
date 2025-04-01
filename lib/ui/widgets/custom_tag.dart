@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 
 class CustomTagWidget extends StatelessWidget {
   final String text;
+  String? subtitle;
   final Color color;
   final Color textColor;
   final double width;
   final TextAlign? align;
 
-  const CustomTagWidget({
+  CustomTagWidget({
     super.key,
     required this.text,
     this.color = Colors.blue,
     this.width = 130,
     required this.textColor,
     this.align,
+    this.subtitle,
   });
 
   @override
@@ -27,15 +29,35 @@ class CustomTagWidget extends StatelessWidget {
         decoration: BoxDecoration(color: color),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-          child: Text(
-            text,
-            textAlign: align,
-            style: TextStyle(
-              fontSize: 24,
-              fontFamily: 'CircularStd',
-              color: textColor,
-              fontWeight: FontWeight.w500,
-            ),
+          child: Row(
+            mainAxisAlignment:
+                subtitle != null
+                    ? MainAxisAlignment.start
+                    : MainAxisAlignment.center,
+            children: [
+              Text(
+                text,
+                textAlign: align,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontFamily: 'CircularStd',
+                  color: textColor,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              subtitle != null
+                  ? Text(
+                    subtitle ?? '',
+                    textAlign: align,
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontFamily: 'CircularStd',
+                      color: textColor,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  )
+                  : SizedBox(),
+            ],
           ),
         ),
       ),

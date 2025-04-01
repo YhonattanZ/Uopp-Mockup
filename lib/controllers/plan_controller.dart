@@ -86,4 +86,23 @@ class PlanController extends GetxController {
     {"feature": "Sistema de roles y permisos"},
     {"feature": "Acceso a API"},
   ];
+
+  //Subscripcion
+  final List<Map<String, dynamic>> plans = [
+    {
+      "days": 60,
+      "description": "Hasta 60 anuncios activos al mismo tiempo",
+      "share": "Publica en Productos y en Moda y complementos",
+    },
+    {
+      "days": 120,
+      "description": "Hasta 120 anuncios activos al mismo tiempo",
+      "share": "Publica en Productos y en Moda y complementos",
+    },
+    {
+      "days": 200,
+      "description": "Hasta 200 anuncios activos al mismo tiempo",
+      "share": "Publica en Productos y en Moda y complementos",
+    },
+  ];
 }

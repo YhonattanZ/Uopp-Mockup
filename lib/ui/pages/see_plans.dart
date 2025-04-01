@@ -25,7 +25,7 @@ class _SeePlansState extends State<SeePlans> {
     return Scaffold(
       bottomNavigationBar: CustomElevatedButton(
         title: 'Seleccionar',
-        onPressed: () => Get.toNamed(AppRoutes.subscriptionPaid),
+        onPressed: () => Get.toNamed(AppRoutes.selectedPlanPage),
       ),
       appBar: CustomAppBar(
         title: AppConfig.selectPlan,
