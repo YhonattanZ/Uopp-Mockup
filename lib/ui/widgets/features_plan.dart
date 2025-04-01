@@ -7,6 +7,7 @@ class FeaturesPlanWidget extends StatefulWidget {
   final String planPrice;
   final String planInfo;
   final String planFeatures;
+  final String asset;
   final Color planColor;
   final Color txtColor;
   final List<Map<String, dynamic>> featuresList;
@@ -20,6 +21,7 @@ class FeaturesPlanWidget extends StatefulWidget {
     required this.planColor,
     required this.featuresList,
     required this.txtColor,
+    required this.asset,
   });
 
   @override
@@ -37,7 +39,7 @@ class _FeaturesPlanWidgetState extends State<FeaturesPlanWidget> {
         _buildPlanHeader(),
         _buildPlanInfo(),
         _buildFeatureTitle(),
-        _buildFeatureList(),
+        _buildFeatureList(widget.asset),
       ],
     );
   }
@@ -141,7 +143,7 @@ class _FeaturesPlanWidgetState extends State<FeaturesPlanWidget> {
     );
   }
 
-  Widget _buildFeatureList() {
+  Widget _buildFeatureList(String asset) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
@@ -158,7 +160,7 @@ class _FeaturesPlanWidgetState extends State<FeaturesPlanWidget> {
               right: -60,
               top: 10,
               child: Image.asset(
-                'assets/icons/1.png',
+                asset,
                 width: 217,
                 height: 170,
                 opacity: const AlwaysStoppedAnimation(0.2),

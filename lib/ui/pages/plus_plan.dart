@@ -36,6 +36,7 @@ class _PlusPlanState extends State<PlusPlan> {
             planColor: AppConfig.plusColor,
             featuresList: controller.plusPlan,
             txtColor: AppConfig.bgTextColor,
+            asset: 'assets/icons/1.png',
           ),
 
           Padding(

@@ -34,6 +34,7 @@ class _ShopPlanState extends State<ShopPlan> {
             planInfo: AppConfig.infoShopPlan,
             planFeatures: AppConfig.shopFeatures,
             planColor: Color(0xff9CFFC6),
+            asset: 'assets/icons/2.png',
             featuresList: controller.shopPlan,
             txtColor: AppConfig.upgradeTextColor,
           ),
