@@ -46,6 +46,7 @@ class _LocalVideoPlayerState extends State<LocalVideoPlayer>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return GestureDetector(
       onTap: _togglePlayPause,
       child: Stack(

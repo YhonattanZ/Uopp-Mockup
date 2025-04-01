@@ -25,6 +25,8 @@ class AppConfig {
       "Impulsa tu canal y gestiona tus ventas con más herramientas, más control y más visibilidad.";
   static const String infoShopPlan =
       "Vende productos físicos y gestiona tu inventario con herramientas profesionales.";
+  static const String subscription =
+      "Ahora ya puedes disfrutar de todas las ventajas de ser PLUS";
 
   //Precios de plan
   static const String priceBasic = "0€/mes";
