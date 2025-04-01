@@ -4,8 +4,14 @@ import 'package:prueba_uopp/config/config.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback onBack;
+  double? height;
 
-  const CustomAppBar({super.key, required this.title, required this.onBack});
+  CustomAppBar({
+    super.key,
+    required this.title,
+    required this.onBack,
+    this.height,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +37,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       flexibleSpace: Container(
+        height: height,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.centerLeft,
