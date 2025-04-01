@@ -30,22 +30,82 @@ class _SelectedPlanState extends State<SelectedPlan> {
       body: ListView.builder(
         itemCount: controller.plans.length,
         itemBuilder: (context, i) {
-          return Column(
-            children: [
-              PlusCard(
-                index: i,
-                subtext: ' - Plan ${controller.plans[i]["days"]}',
-                planName: AppConfig.plusPlan,
-                planPrice: AppConfig.pricePlus,
-                planColor: AppConfig.plusColor,
-                txtColor: AppConfig.bgTextColor,
+          return Obx(() {
+            bool isSelected = controller.selectedPlanIndex.value == i;
+            return GestureDetector(
+              onTap: () {
+                controller.selectPlan(i);
+                isSelected;
+              },
+
+              child: Column(
+                children: [
+                  PlusCard(
+                    index: i,
+                    subtext: ' - Plan ${controller.plans[i]["days"]}',
+                    planName: AppConfig.plusPlan,
+                    planPrice: AppConfig.pricePlus,
+                    planColor: AppConfig.plusColor,
+                    txtColor: AppConfig.bgTextColor,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: DiagonalContainer(
+                      decoration:
+                          isSelected
+                              ? BorderRadius.zero
+                              : BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10),
+                              ),
+                    ),
+                  ),
+                  Visibility(
+                    visible: isSelected,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Container(
+                        width: double.infinity,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              color: AppConfig.planTextColor,
+                              width: 2,
+                            ),
+                            left: BorderSide(
+                              color: AppConfig.planTextColor,
+                              width: 2,
+                            ),
+                            right: BorderSide(
+                              color: AppConfig.planTextColor,
+                              width: 2,
+                            ),
+                          ),
+                          color: Color(0xffE9E7FF),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Plan seleccionado',
+                            style: TextStyle(
+                              fontFamily: 'CircularStd',
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: AppConfig.planTextColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: DiagonalContainer(),
-              ),
-            ],
-          );
+            );
+          });
         },
       ),
     );

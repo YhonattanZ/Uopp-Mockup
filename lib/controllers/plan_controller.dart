@@ -105,4 +105,10 @@ class PlanController extends GetxController {
       "share": "Publica en Productos y en Moda y complementos",
     },
   ];
+
+  var selectedPlanIndex = (-1).obs;
+
+  void selectPlan(int index) {
+    selectedPlanIndex.value = index;
+  }
 }

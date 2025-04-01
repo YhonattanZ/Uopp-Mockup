@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:prueba_uopp/config/config.dart';
 
 class DiagonalContainer extends StatelessWidget {
-  const DiagonalContainer({super.key});
+  final BorderRadiusGeometry? decoration;
+
+  const DiagonalContainer({super.key, this.decoration});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +18,12 @@ class DiagonalContainer extends StatelessWidget {
         ),
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(10),
-          bottomRight: Radius.circular(10),
-        ),
+        borderRadius:
+            decoration ??
+            BorderRadius.only(
+              bottomLeft: Radius.circular(10),
+              bottomRight: Radius.circular(10),
+            ),
         child: CustomPaint(
           painter: DiagonalPainter(),
           child: Padding(
