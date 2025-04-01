@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:prueba_uopp/config/config.dart';
 import 'package:prueba_uopp/controllers/plan_controller.dart';
 import 'package:prueba_uopp/ui/widgets/custom_appbar.dart';
+import 'package:prueba_uopp/ui/widgets/custom_button.dart';
 import 'package:prueba_uopp/ui/widgets/diagonal_container.dart';
 
 import 'package:prueba_uopp/ui/widgets/plus_card.dart';
@@ -21,6 +22,10 @@ class _SelectedPlanState extends State<SelectedPlan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(title: 'Plan PLUS', onBack: () => Get.back()),
+      bottomNavigationBar: CustomElevatedButton(
+        title: 'Seleccionar',
+        onPressed: () {},
+      ),
 
       body: ListView.builder(
         itemCount: controller.plans.length,

@@ -60,7 +60,7 @@ class _PlusCardState extends State<PlusCard> {
           children: [
             CustomTagWidget(
               subtitle: widget.subtext,
-              width: 200,
+              width: 210,
               text: widget.planName,
               align: TextAlign.center,
               textColor: widget.txtColor,
