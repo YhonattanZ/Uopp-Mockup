@@ -7,6 +7,8 @@ import 'package:prueba_uopp/ui/pages/plus_plan.dart';
 import 'package:prueba_uopp/ui/pages/shop_plan.dart';
 import 'package:prueba_uopp/ui/widgets/custom_appbar.dart';
 import 'package:prueba_uopp/ui/widgets/custom_button.dart';
+import 'package:prueba_uopp/ui/widgets/local_video_player.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SeePlans extends StatefulWidget {
   const SeePlans({super.key});
@@ -17,6 +19,7 @@ class SeePlans extends StatefulWidget {
 
 class _SeePlansState extends State<SeePlans> {
   final PlanController controller = Get.put(PlanController());
+  final PageController _pageController = PageController();
 
   bool showAll = false;
 
@@ -31,7 +34,28 @@ class _SeePlansState extends State<SeePlans> {
         title: AppConfig.selectPlan,
         onBack: () => Get.back(),
       ),
-      body: PageView(children: [PlusPlan(), ShopPlan()]),
+      body: Column(
+        children: [
+          LocalVideoPlayer(videoPath: 'assets/videos/video.mp4'),
+
+          Expanded(
+            child: PageView(
+              controller: _pageController,
+              children: [PlusPlan(), ShopPlan()],
+            ),
+          ),
+          SmoothPageIndicator(
+            controller: _pageController,
+            count: 2,
+            effect: ExpandingDotsEffect(
+              activeDotColor: AppConfig.planTextColor,
+              dotColor: Colors.grey,
+              dotHeight: 8,
+              dotWidth: 8,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
