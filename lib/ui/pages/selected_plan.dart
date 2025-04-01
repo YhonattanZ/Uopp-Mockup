@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prueba_uopp/config/config.dart';
 import 'package:prueba_uopp/controllers/plan_controller.dart';
+import 'package:prueba_uopp/routes/app_routes.dart';
 import 'package:prueba_uopp/ui/widgets/custom_appbar.dart';
 import 'package:prueba_uopp/ui/widgets/custom_button.dart';
 import 'package:prueba_uopp/ui/widgets/diagonal_container.dart';
@@ -18,24 +19,36 @@ class SelectedPlan extends StatefulWidget {
 class _SelectedPlanState extends State<SelectedPlan> {
   final PlanController controller = Get.put(PlanController());
 
+  bool isAllow = false;
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.selectPlan(-1);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(title: 'Plan PLUS', onBack: () => Get.back()),
-      bottomNavigationBar: CustomElevatedButton(
-        title: 'Seleccionar',
-        onPressed: () {},
-      ),
+      bottomNavigationBar:
+          controller.selectedPlanIndex.value == -1
+              ? CustomElevatedButton(title: 'Seleccionar', onPressed: () {})
+              : CustomElevatedButton(
+                title: 'Continuar',
+                onPressed: () => Get.toNamed(''),
+              ),
 
       body: ListView.builder(
         itemCount: controller.plans.length,
         itemBuilder: (context, i) {
           return Obx(() {
             bool isSelected = controller.selectedPlanIndex.value == i;
+
             return GestureDetector(
               onTap: () {
                 controller.selectPlan(i);
-                isSelected;
+                setState(() {});
               },
 
               child: Column(
